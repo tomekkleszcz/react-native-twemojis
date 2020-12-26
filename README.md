@@ -1,6 +1,6 @@
 # 😁 react-native-twemojis 📦
 
-[![npm](https://img.shields.io/npm/v/react-native-twemojis)](https://www.npmjs.com/package/twemojis)
+[![npm](https://img.shields.io/npm/v/react-native-twemojis)](https://www.npmjs.com/package/react-native-twemojis)
 ![npm](https://img.shields.io/npm/dm/react-native-twemojis)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tomekkleszcz/react-native-twemojis/Publish)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/tomekkleszcz/react-native-twemojis/Tests?label=tests)
