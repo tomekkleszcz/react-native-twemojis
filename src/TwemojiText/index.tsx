@@ -8,7 +8,7 @@ import reactStringReplace from "react-string-replace";
 import {emojiUnicode} from "../util";
 
 //Styles
-import Styles from "./index.styles";
+import {StyleSheet} from 'react-native';
 
 //Types
 import {TextProps, ImageStyle} from "react-native";
@@ -25,11 +25,16 @@ const TwemojiText: React.VFC<TextProps & TwemojiTextProps> = ({
     children,
     ...props
 }) => {
+    const textStyle = StyleSheet.flatten(props.style);
+
     const parts = reactStringReplace(children, EMOJI_REGEX, (emoji, i) => (
         <Image
             key={`emoji-${i}`}
             testID={emoji}
-            style={twemojiStyle ?? Styles.emoji}
+            style={twemojiStyle ?? {
+                width: textStyle?.fontSize ?? 14,
+                height: textStyle?.fontSize ?? 14
+            }}
             source={{
                 uri: `https://twemoji.maxcdn.com/2/72x72/${emojiUnicode(
                     emoji
