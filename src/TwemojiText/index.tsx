@@ -5,7 +5,7 @@ import {Image, Text} from "react-native";
 
 //Utils
 import reactStringReplace from "react-string-replace";
-import {emojiUnicode} from "../util";
+import emojiUnicode from 'emoji-unicode';
 
 //Styles
 import {StyleSheet} from 'react-native';
@@ -18,7 +18,7 @@ type TwemojiTextProps = {
     children: string;
 };
 
-const EMOJI_REGEX = /(\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])/g;
+const EMOJI_REGEX = /((?:\u00a9|\u00ae|[\u2000-\u3300]|\ud83c[\ud000-\udfff]|\ud83d[\ud000-\udfff]|\ud83e[\ud000-\udfff])+)/g;
 
 const TwemojiText: React.VFC<TextProps & TwemojiTextProps> = ({
     twemojiStyle,
@@ -38,7 +38,7 @@ const TwemojiText: React.VFC<TextProps & TwemojiTextProps> = ({
             source={{
                 uri: `https://twemoji.maxcdn.com/2/72x72/${emojiUnicode(
                     emoji
-                )}.png`,
+                ).replace(/\s/g, '-')}.png`,
             }}
         />
     ));
